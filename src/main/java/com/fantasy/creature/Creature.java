@@ -1,5 +1,7 @@
 package com.fantasy.creature;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,11 +10,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.aspectj.weaver.tools.MatchingContext;
+
 @Entity
 public class Creature {
-	
+	private Double speed;
 	private String name;
-	private double heightFt;
+	private Double heightFt;
 	private double weightLb;
 	private double strength;
 
@@ -42,38 +46,89 @@ public class Creature {
 	}
 
 	public String getName() {
-		// TODO Auto-generated method stub
 		return this.name;
 	}
 
 	public void setHeightFt(double heightFt) {
-		// TODO Auto-generated method stub
 		this.heightFt = heightFt;
 	}
 
 	public Double getHeight() {
-		// TODO Auto-generated method stub
 		return this.heightFt;
 	}
 
 	public void setWeightLb(double weightLb) {
-		// TODO Auto-generated method stub
 		this.weightLb = weightLb;
 	}
 
 	public Double getWeight() {
-		// TODO Auto-generated method stub
 		return this.weightLb;
 	}
 
 	public void setStrength(double strength) {
-		// TODO Auto-generated method stub
 		this.strength = strength;
 	}
 
 	public Double getStrength() {
-		// TODO Auto-generated method stub
 		return this.strength;
+	}
+
+	public Double getSpeed() {
+		return this.speed;
+	}
+
+	public void setSpeed(double speed) {
+		this.speed = speed;
+	}
+
+	public void setEndurance(double d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Double getEndurance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setIntelligence(double d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Double getIntelligence() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setVitality(double d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Double getVitality() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setResistance(double d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Double getResistance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setDexterity(double d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Double getDexterity() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
