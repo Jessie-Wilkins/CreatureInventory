@@ -14,34 +14,37 @@ import org.aspectj.weaver.tools.MatchingContext;
 
 @Entity
 public class Creature {
-	private Double speed;
+	private @Id @GeneratedValue Long id;
+	private double speed;
 	private String name;
-	private Double heightFt;
+	private double heightFt;
 	private double weightLb;
 	private double strength;
+	private double endurance;
+	private double intelligence;
+	private double vitality;
+	private double resistance;
+	private double dexterity;
 
 	public void setName(String name) {
 		// TODO Auto-generated method stub
 		try {
 			if (hasSpecialCharacters(name)) {
 				throw new IllegalArgumentException();
-			}
-			else {
+			} else {
 				this.name = name;
 			}
-			
+
+		} catch (Error e) {
+			System.out.print("Please don't use any special characters!");
 		}
-		catch(Error e) {
-			System.out.print("Please don't use any special characters!");	
-		}
-		
+
 	}
 
 	private boolean hasSpecialCharacters(String name) {
-		Pattern p = Pattern.compile(
-		        "[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+		Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
 		Matcher m = p.matcher(name);
-		
+
 		return m.find();
 	}
 
@@ -81,54 +84,70 @@ public class Creature {
 		this.speed = speed;
 	}
 
-	public void setEndurance(double d) {
-		// TODO Auto-generated method stub
-		
+	public void setEndurance(double endurance) {
+		this.endurance = endurance;
+
 	}
 
 	public Double getEndurance() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.endurance;
 	}
 
-	public void setIntelligence(double d) {
-		// TODO Auto-generated method stub
-		
+	public void setIntelligence(double intelligence) {
+		this.intelligence = intelligence;
+
 	}
 
 	public Double getIntelligence() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.intelligence;
 	}
 
-	public void setVitality(double d) {
-		// TODO Auto-generated method stub
-		
+	public void setVitality(double vitality) {
+		this.vitality = vitality;
+
 	}
 
 	public Double getVitality() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.vitality;
 	}
 
-	public void setResistance(double d) {
-		// TODO Auto-generated method stub
-		
+	public void setResistance(double resistance) {
+		this.resistance = resistance;
+
 	}
 
 	public Double getResistance() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.resistance;
 	}
 
-	public void setDexterity(double d) {
-		// TODO Auto-generated method stub
-		
+	public void setDexterity(double dexterity) {
+		this.dexterity = dexterity;
+
 	}
 
 	public Double getDexterity() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.dexterity;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getId() {
+		return this.id;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+
+		stringBuilder.append("Creature{ id: ").append(getId()).append(", name: ").append(this.name).append(", height: ")
+				.append(this.heightFt).append("ft, weight: ").append(this.weightLb).append("lb, strength: ")
+				.append(this.strength).append(", endurance: ").append(this.endurance).append(", intelligence: ")
+				.append(this.intelligence).append(", vitality: ").append(this.vitality).append(", resistance: ")
+				.append(this.resistance).append(", dexterity: ").append(this.dexterity);
+
+		return stringBuilder.toString();
 	}
 
 }
