@@ -1,4 +1,4 @@
-package com.fantasy.creature;
+package com.fantasy.creature.Entities;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -107,6 +107,34 @@ class CreatureTest {
 		System.out.println(creature.toString());
 		System.out.println("Creatures are the same: " + stringBuilder.toString().equals(creature.toString()));
 		assertEquals(stringBuilder.toString(), creature.toString());
+	}
+	
+	@Test()
+	void canCompareDifferentCreatureObjectsWithSameContentAndSayTheyAreEqual() {
+		creature.setName("Griffin");
+		creature.setHeightFt(1.5);
+		creature.setWeightLb(100.5);
+		creature.setStrength(30.6);
+		creature.setEndurance(11.7);
+		creature.setIntelligence(5.32);
+		creature.setVitality(300.01);
+		creature.setResistance(10.30);
+		creature.setDexterity(50.9);
+		creature.setId((long) 1);
+		
+		Creature localCreature = new Creature();
+		localCreature.setName("Griffin");
+		localCreature.setHeightFt(1.5);
+		localCreature.setWeightLb(100.5);
+		localCreature.setStrength(30.6);
+		localCreature.setEndurance(11.7);
+		localCreature.setIntelligence(5.32);
+		localCreature.setVitality(300.01);
+		localCreature.setResistance(10.30);
+		localCreature.setDexterity(50.9);
+		localCreature.setId((long) 1);
+		
+		assertTrue(creature.equals(localCreature));
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.fantasy.creature;
+package com.fantasy.creature.Entities;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -148,6 +148,27 @@ public class Creature {
 				.append(this.resistance).append(", dexterity: ").append(this.dexterity);
 
 		return stringBuilder.toString();
+	}
+
+	@Override
+	public boolean equals(Object creature) {
+		if (creature instanceof Creature) {
+			Creature creatureCreature = (Creature) creature;
+			return Objects.equals(creatureCreature.getId(), this.id)
+					&& Objects.equals(creatureCreature.getDexterity(), this.dexterity)
+					&& Objects.equals(creatureCreature.getStrength(), this.strength)
+					&& Objects.equals(creatureCreature.getEndurance(), this.endurance)
+					&& Objects.equals(creatureCreature.getHeight(), this.heightFt)
+					&& Objects.equals(creatureCreature.getIntelligence(), this.intelligence)
+					&& Objects.equals(creatureCreature.getName(), this.name)
+					&& Objects.equals(creatureCreature.getResistance(), this.resistance)
+					&& Objects.equals(creatureCreature.getSpeed(), this.speed)
+					&& Objects.equals(creatureCreature.getVitality(), this.vitality)
+					&& Objects.equals(creatureCreature.getWeight(), this.weightLb);
+		} else {
+			return false;
+		}
+
 	}
 
 }
