@@ -9,7 +9,8 @@ Note that this is a work in progress and most of the instructions for running th
 
 ## Requirements
 Java 8
-Linux Machine
+
+Linux (e.g. Debian 10)
 
 ## Running the Program
 TBD
