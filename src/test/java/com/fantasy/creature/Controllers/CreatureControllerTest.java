@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,6 +51,7 @@ public class CreatureControllerTest {
 		creatureRepository = mock(CreatureRepository.class);
 		
 		when(creatureRepository.findAll()).thenReturn(creatureList);
+		when(creatureRepository.findById(1L)).thenReturn(Optional.of(creature));
 
 		creatureController = new CreatureController(creatureRepository);	
 		
@@ -65,6 +67,16 @@ public class CreatureControllerTest {
 	@Test
 	public void testThatGetCreatureGetsAllCreatures() {
 		assertEquals("["+creature.toString()+"]", creatureController.getCreatures());
+	}
+	
+	@Test
+	public void testThatGetCreatureWithIdGetsSpecificCreature() {
+		assertEquals(creature.toString(), creatureController.getCreatureById(1));
+	}
+	
+	@Test
+	public void testThatGetCreaturesWithNameCanReturnCreaturesWithMatchingName() {
+		assertEquals("["+creature.toString()+"]", creatureController.getCreatureByName("Griffin"));
 	}
 
 }
